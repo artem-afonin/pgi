@@ -12,7 +12,9 @@ def main():
 
     img = Image.open(img_path)
     img_matrix = np.array(img.convert('RGB'))
-    img_matrix = np.rot90(img_matrix)
+    # img_matrix = np.rot90(img_matrix)
+    img_matrix = img_matrix.transpose((1, 0, 2))
+    img_matrix = img_matrix[::-1]
 
     new_img = Image.fromarray(img_matrix, 'RGB')
     # new_img.save(path.join(resources_dir, 'cat_rotated.bmp'), 'bmp')
